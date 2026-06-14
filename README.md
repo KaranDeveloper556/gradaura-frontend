@@ -1,42 +1,69 @@
-# 🧑‍🎓 GradAura 👨‍💻 -
+# GradAura
 
-Building the Future of Proof-of-Work Student Identity.
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
 
-GradAura is a professional networking and career development platform designed for students, alumni, and companies. Instead of relying on static resumes, GradAura creates a dynamic proof-of-work ecosystem where talent is discovered through real projects, skills, achievements, contributions, and community engagement.
+## React Compiler
 
-## 🚀 Problem Statement
-Traditional resumes fail to represent a student's actual capabilities.
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
 
-Students often face challenges such as:
+## Expanding the ESLint configuration
 
--- Limited visibility despite having strong skills
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
--- Difficulty showcasing ongoing work and projects
+```js
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
 
--- Lack of direct access to alumni and mentors
+      // Remove tseslint.configs.recommended and replace with this
+      tseslint.configs.recommendedTypeChecked,
+      // Alternatively, use this for stricter rules
+      tseslint.configs.strictTypeChecked,
+      // Optionally, add this for stylistic rules
+      tseslint.configs.stylisticTypeChecked,
 
--- Recruiters relying heavily on resumes rather than evidence of ability
+      // Other configs...
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
 
--- Fragmented achievements spread across GitHub, LeetCode, hackathons, and portfolios
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-As a result, talented students often remain unnoticed.
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-## 💡 Solution
-
-GradAura replaces static resumes with a living digital identity.
-
-The platform allows students to:
-
--- Showcase projects and achievements
-
--- Track skill growth
-
--- Connect with alumni and peers
-
--- Participate in events
-
--- Build professional credibility
-
--- Maintain a proof-of-work profile
-
-Companies can discover talent based on actual activity rather than resume keywords
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{ts,tsx}'],
+    extends: [
+      // Other configs...
+      // Enable lint rules for React
+      reactX.configs['recommended-typescript'],
+      // Enable lint rules for React DOM
+      reactDom.configs.recommended,
+    ],
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.node.json', './tsconfig.app.json'],
+        tsconfigRootDir: import.meta.dirname,
+      },
+      // other options...
+    },
+  },
+])
+```
