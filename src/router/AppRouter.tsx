@@ -4,7 +4,7 @@ import PublicRoute from "./route/PublicRoute";
 const AppRouter = () => {
   return (
     <Routes>
-      <Route path="/" element={<PublicRoute />} />
+      <Route path="/*" element={<PublicRoute />} />
     </Routes>
   );
 };

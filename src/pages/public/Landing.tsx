@@ -1,8 +1,15 @@
+import {
+  LandingHeroSection,
+  SocialProofMarqueeSection,
+} from "../../components";
 
 const Landing = () => {
   return (
-    <main>Landing</main>
-  )
-}
+    <main>
+      <LandingHeroSection />
+      <SocialProofMarqueeSection />
+    </main>
+  );
+};
 
-export default Landing
+export default Landing;
