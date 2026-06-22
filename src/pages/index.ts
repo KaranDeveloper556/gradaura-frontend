@@ -1,6 +1,7 @@
 // Public Pages
 export { default as LandingPage } from './public/Landing'
 export { default as AboutPage } from './public/About'
+export { default as ExplorePage } from './public/Explore'
 export { default as FeaturesPage } from './public/Features'
 export { default as EventsPage } from './public/Events'
 export { default as ProjectsPage } from './public/Projects'

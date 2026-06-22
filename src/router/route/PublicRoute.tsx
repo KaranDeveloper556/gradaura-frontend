@@ -3,6 +3,7 @@ import {
   AboutPage,
   ContactPage,
   EventsPage,
+  ExplorePage,
   FaqPage,
   FeaturesPage,
   LandingPage,
@@ -16,6 +17,7 @@ const PublicRoute = () => {
       <Navbar />
       <Routes>
         <Route index element={<LandingPage />} />
+        <Route path="explore" element={<ExplorePage />} />
         <Route path="features" element={<FeaturesPage />} />
         <Route path="projects" element={<ProjectsPage />} />
         <Route path="events" element={<EventsPage />} />
