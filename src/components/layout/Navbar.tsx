@@ -22,7 +22,8 @@ const Navbar = () => {
   }, []);
 
   const primaryNavItems = [
-    { label: "Explore", slug: "/" },
+    { label: "Home", slug: "/" },
+    { label: "Explore", slug: "/explore" },
     { label: "Features", slug: "/features" },
     { label: "Projects", slug: "/projects" },
     { label: "Events", slug: "/events" },
